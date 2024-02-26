@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Adder {
     private int[] arr;
     private int numsum;
@@ -24,10 +26,25 @@ class Adder {
 
 public class Lab2 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Adder add = new Adder(new int[]{3,5,-4,8,11,1,-1,7}, 15);
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
 
-        int[] result = add.getData(new int[]{3,5,-4,8,11,1,-1,7}, 15);
+        int[] inputArray = new int[size];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            inputArray[i] = scanner.nextInt();
+        }
+
+        System.out.print("Enter the target sum: ");
+        int targetSum = scanner.nextInt();
+
+        Adder add = new Adder(inputArray, targetSum);
+
+        int[] result = add.getData(inputArray, targetSum);
         System.out.println("Result: [" + result[0] + ", " + result[1] + "]");
+
+        scanner.close();
     }
 }

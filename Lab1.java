@@ -49,6 +49,5 @@ public class Lab1 {
         Student s1 = new Student();
         Student s2 = new Student("Ravi", 19, 72);
         Student s3 = new Student(s2);
-        System.out.println(Student);
     }
 }
