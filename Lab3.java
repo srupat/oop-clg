@@ -51,6 +51,7 @@ class Circle extends Shape {
 
 public class Lab3 {
     public static void main(String[] args) {
+
         Shape triangle = new Triangle(3, 4);
         Shape circle = new Circle(5);
         Shape square = new Square(5);
