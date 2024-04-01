@@ -1,8 +1,13 @@
 import java.lang.Math;
 import java.util.Scanner;
 
-abstract class Shape {
-    public abstract void area();
+class Shape {
+    private int a = 5;
+    private int b = 4;
+    public void area(){
+        a = a++;
+        return;
+    };
 }
 
 class Triangle extends Shape {
@@ -19,7 +24,21 @@ class Triangle extends Shape {
         double triangleArea = 0.5 * base * height;
         System.out.println("Area of Triangle: " + triangleArea);
     }
+
+    public void area(int base) {
+        this.base = base;
+        double triangleArea = 0.5 * this.base * height;
+        System.out.println("Area of Triangle with new base: " + triangleArea);
+    }
+
+    public void area(int base, int height) {
+        this.base = base;
+        this.height = height;
+        double triangleArea = 0.5 * this.base * this.height;
+        System.out.println("Area of Triangle with new base and height: " + triangleArea);
+    }
 }
+
 
 class Square extends Shape {
     private int side;
@@ -33,6 +52,7 @@ class Square extends Shape {
         int squareArea = side * side;
         System.out.println("Area of Square: " + squareArea);
     }
+
 }
 
 class Circle extends Shape {
@@ -47,6 +67,7 @@ class Circle extends Shape {
         double circleArea = Math.PI * radius * radius;
         System.out.println("Area of Circle: " + circleArea);
     }
+
 }
 
 public class Lab3 {
@@ -55,6 +76,8 @@ public class Lab3 {
         Shape triangle = new Triangle(3, 4);
         Shape circle = new Circle(5);
         Shape square = new Square(5);
+        int a = 5;
+        int b = 10;
 
         triangle.area();
         circle.area();

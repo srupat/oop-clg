@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main10 {
     
 static boolean isArmstrong(int n)   
@@ -19,7 +20,7 @@ static boolean isArmstrong(int n)
     while(temp>0)   
     {       
         last = temp % 10;          
-        sum +=  (Math.pow(last, digits));   
+//        sum +=  (Math.pow(last, digits));
         temp = temp/10;   
     }   
     if(n==sum)    
