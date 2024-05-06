@@ -1,21 +1,26 @@
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        int[] array1 = {1, 2, 3, 4, 5};
-        int[] array2 = {1, 2, 3, 4, 5};
-        int[] array3 = {1, 2, 3, 4, 6};
+        SubClass obj = new SubClass();
+        obj.a_method();
+        obj.normalMethod();
+    }
+}
 
-        System.out.println("Array 1: " + Arrays.toString(array1));
-        System.out.println("Array 2: " + Arrays.toString(array2));
-        System.out.println("Array 3: " + Arrays.toString(array3));
+abstract class AbstractClass {
+    public AbstractClass() {
+        System.out.println("This is constructor of abstract class");
+    }
 
-        // Check equality of array1 and array2
-        boolean isEqual1And2 = Arrays.equals(array1, array2);
-        System.out.println("Array 1 and Array 2 are equal: " + isEqual1And2);
+    abstract void a_method();
 
-        // Check equality of array1 and array3
-        boolean isEqual1And3 = Arrays.equals(array1, array3);
-        System.out.println("Array 1 and Array 3 are equal: " + isEqual1And3);
+    void normalMethod() {
+        System.out.println("This is a normal method of abstract class");
+    }
+}
+
+class SubClass extends AbstractClass {
+    @Override
+    void a_method() {
+        System.out.println("This is abstract method");
     }
 }
