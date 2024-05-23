@@ -69,11 +69,14 @@ class StudentManager {
 
     public void removeStudent(Student s){
         Iterator<Student> iter = students.iterator();
+
         while(iter.hasNext()){
-            if(iter.next() == s){
+            Student current = iter.next();
+            if(current.getRoll_no() == s.getRoll_no()) {
+                System.out.println("Removing student " + s);
                 iter.remove();
+                return;
             }
-            return;
         }
     }
 
@@ -81,15 +84,15 @@ class StudentManager {
         Iterator<Student> iter = students.iterator();
         while(iter.hasNext()){
             System.out.println(iter.next());
-            return;
         }
     }
 
     public void replaceGrade(int grade, String name){
         Iterator<Student> iter = students.iterator();
         while(iter.hasNext()){
-            if(iter.next().getName().equals(name)){
-                iter.next().setGrade(grade);
+            Student s = iter.next();
+            if(s.getName().equals(name)){
+                s.setGrade(grade);
                 return;
             }
         }
@@ -105,11 +108,12 @@ public class exam1 {
         students.add(new Student("Manas", 48, 9));
 
         StudentManager sm = new StudentManager(students);
-        System.out.println(sm.getStudents());
+//        System.out.println(sm.getStudents());
         sm.removeStudent(new Student("Srujan", 72, 8));
         sm.addStudent(new Student("Y", 56, 9));
         sm.displayStudents();
-        sm.replaceGrade(9, "Srujan");
+        sm.replaceGrade(9, "Apoorva");
+        sm.displayStudents();
     }
 
 }
